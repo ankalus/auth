@@ -48,7 +48,9 @@ func Midelware(pepper string) gin.HandlerFunc {
 			id := userID.(int)
 			if id > 0 {
 				_auth.user = serchID(id)
-				_auth.userID = id
+				if _auth.user != nil {
+					_auth.userID = id
+				}
 			}
 		}
 	}
